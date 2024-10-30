@@ -1,15 +1,11 @@
-<div class="container">
-
-    <!-- navbar -->
-    <div class="row">
+<div class="container-fluid body">
+    <div class="row sticky-top">
         <app-header></app-header>
     </div>
-    <!-- body -->
     <div class="row">
-
+        <router-outlet></router-outlet>
     </div>
-    <!-- footer -->
-    <div class="row">
-
+    <div class="row mt-5">
+        <app-footer></app-footer>
     </div>
 </div>

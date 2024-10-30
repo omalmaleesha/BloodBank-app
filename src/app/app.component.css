@@ -1,0 +1,13 @@
+:host {
+    background-color: #241a1a; /* Example background color */
+    position: relative; /* To allow z-index to work */
+    z-index: 1; /* Set a lower z-index for this layer */
+}
+
+.body{
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+

@@ -1,0 +1,20 @@
+.feedback-container {
+    position: relative; /* Positioning for pseudo-element */
+    padding: 20px; /* Padding inside the container */
+    border-radius: 1rem; /* Rounded corners */
+    background-color: rgb(255, 255, 255); /* Background color */
+}
+
+.feedback-container::before {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Place behind the content */
+    border-radius: 1rem; /* Match rounded corners */
+    background: linear-gradient(30deg, #f06957, #ff4157); /* Gradient color */
+    padding: 5px; /* Padding to create space for border */
+    filter: blur(25px); /* Optional blur effect */
+}

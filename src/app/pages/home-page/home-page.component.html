@@ -1,1 +1,73 @@
-<p>home-page works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <app-carosel></app-carosel>
+    </div>
+    <div class="row">
+        <div class="content">
+            <h6>Home</h6>
+            <img src="/Forward.png" alt="icon" class="icon">
+            <h6>Blood</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center " data-aos="fade-right">
+            <div class="image">
+                <img src="/banner.webp" alt="banner" class="img-fluid rounded-5"> 
+            </div>
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center text-center" data-aos="fade-left">
+            <div class="row mb-3"> 
+                <h4 class="fw-bolder">Life is the Reason</h4>
+            </div>
+            <div class="row mb-3"> 
+                <h1 class="fw-bolder text-danger">A New Reborn My Best Friend Because I Can</h1>
+            </div>
+            <div class="row mb-3"> 
+                <h6>The reasons for donating blood are many. That’s good, because we need 100,000 real reasons to get 100,000 new donors in the door.</h6>
+            </div>
+            <div class="row">
+                <h4 class="text-danger">See Why Donors Do It <img src="/arrow.png" alt="arrow"></h4>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-4 d-flex justify-content-center align-items-center ">
+            <app-cards></app-cards>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <app-cards></app-cards>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <app-cards></app-cards>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center ">
+            <video width="640" height="360" autoplay loop muted>
+                <source src="/animation.mp4" type="video/mp4">
+            </video>
+        </div> 
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center" data-aos="fade-left" data-aos-offset="100">
+            <div class="row mb-3"> 
+                <h1 class="fw-bolder text-danger">A New Reborn My Best Friend Because I Can ?</h1>
+            </div>
+            <div class="list p-1 rounded-4">
+                <h2 class="text-center my-3 fw-bold">Frequently Asked Questions</h2>
+                <ul class="list-group">
+                    <li class="list-group-item rounded-5">What prescribed medications will prevent me from donating?</li>
+                    <li class="list-group-item rounded-5">Can I donate if my iron levels are low (iron deficiency) and/or my haemoglobin levels are low (anaemia)?</li>
+                    <li class="list-group-item rounded-5">I have a tattoo or piercing. Can I donate?</li>
+                    <li class="list-group-item rounded-5">How long after I've had a vaccination can I donate?</li>
+                    <li class="list-group-item rounded-5">I have a heart condition. Can I donate?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-feedback></app-feedback>
+    </div>
+    
+</div>

@@ -1,0 +1,54 @@
+.full-background {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); 
+    z-index: 1;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 0; /* Keeps image behind the overlay */
+}
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2; 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+.carousel-caption h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-caption h1 {
+        font-size: 2rem; /* Adjust for smaller screens */
+    }
+}
