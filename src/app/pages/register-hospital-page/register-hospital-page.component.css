@@ -46,7 +46,7 @@ background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, F
 }
 .container form .form-row{
   display: flex;
-  margin: 25px 0;
+  margin: 50px 0;
 }
 form .form-row .input-data{
   width: 100%;

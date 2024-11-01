@@ -1,19 +1,17 @@
 <div class="container-fluid addImg">
     <div class="row">
-        <div class="col-lg-4 d-flex justify-content-center align-items-center ">
-            <video width="800" height="450" autoplay loop muted>
-                <source src="/reg.webm" type="video/mp4">
-            </video>
-        </div> 
-        <div class="col-lg-8 d-flex justify-content-center align-items-center vh-100">
-            <div class="container rounded-5">
-                <div class="text">Donar Registration</div>
-                <form action="#">
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-8 d-flex justify-content-center align-content-center">
+            <div class="container mt-3 mb-3 rounded-4">
+                <div class="text">Hospital Registration</div>
+                <form action="#" method="POST">
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="text" id="fullName" required>
+                            <input type="text" id="name" required>
                             <div class="underline"></div>
-                            <label for="fullName">Full Name</label>
+                            <label for="name">Full Name</label>
                         </div>
                         <div class="input-data">
                             <input type="text" id="address" required>
@@ -28,57 +26,45 @@
                             <label for="city">City</label>
                         </div>
                         <div class="input-data">
-                            <input type="email" id="emailAddress" required>
+                            <input type="text" id="province" required>
                             <div class="underline"></div>
-                            <label for="emailAddress">Email Address</label>
+                            <label for="province">Province</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="password" id="password" required>
+                            <input type="text" id="zipCode" required>
                             <div class="underline"></div>
-                            <label for="password">Password</label>
+                            <label for="zipCode">Zip Code</label>
                         </div>
-                        <div class="input-data">
-                            <input type="password" id="confirmPassword" required>
-                            <div class="underline"></div>
-                            <label for="confirmPassword">Confirm Password</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
                         <div class="input-data">
                             <input type="tel" id="contactNumber" required>
                             <div class="underline"></div>
                             <label for="contactNumber">Contact Number</label>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="input-data">
-                            <input type="text" id="bloodGroup" required>
+                            <input type="email" id="email" required>
                             <div class="underline"></div>
-                            <label for="bloodGroup">Blood Group</label>
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="input-data">
+                            <input type="password" id="password" required>
+                            <div class="underline"></div>
+                            <label for="password">Password</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="date" id="dob" required>
-                            <div class="underline"></div>
-                            <label for="dob">DOB</label>
-                        </div>
-                        <div class="input-data">
-                            <select id="gender" required>
-                                <option value="" disabled selected>Choose Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                            <select id="type" required>
+                                <option value="" disabled selected>Choose Type</option>
+                                <option value="pvt">pvt</option>
+                                <option value="gov">Gov</option>
+                                <!-- Add more options as needed -->
                             </select>
                             <div class="underline"></div>
-                            <label for="gender">Gender</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="input-data">
-                            <input type="number" id="age" required>
-                            <div class="underline"></div>
-                            <label for="age">Age</label>
+                            <label for="type">Type</label>
                         </div>
                     </div>
                     <div class="form-row submit-btn">
@@ -89,7 +75,6 @@
                     </div>
                 </form>
             </div>
-            
         </div>
     </div>
 </div>

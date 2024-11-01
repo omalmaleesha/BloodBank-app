@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="container my-5">
+            <div class="circle-container">
+                <video class="video" autoplay loop muted>
+                    <source src="/heart.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="detail detail1">Detail 1</div>
+                <div class="detail detail2">Detail 2</div>
+                <div class="detail detail3">Detail 3</div>
+                <div class="detail detail6">Detail 6</div>
+                <div class="detail detail7">Detail 7</div>
+                <div class="detail detail8">Detail 8</div>
+                <div class="detail detail9">Detail 9</div>
+                <div class="detail detail10">Detail 10</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container mt-5" >
+                    <div class="row d-flex justify-content-center" >
+                        <div class="col-md-7">
+                            <div class="card border border-danger p-1 py-4"> <!-- Added border and border-dark classes -->
+                                <div class="text-center">
+                                    <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle">
+                                </div>
+                                
+                                <div class="text-center mt-3">
+                                    <span class="bg-secondary p-1 px-4 rounded text-white">Donor ID : DON-001</span>
+                                    <h5 class="mt-2 mb-0">Alexender Schidmt</h5>
+                                    <span>UI/UX Designer</span>
+                                    
+                                    <div class="px-4 mt-1">
+                                        <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                    
+                                    <div class="buttons">
+                                        <button class="btn btn-outline-primary px-4">Edit</button>
+                                        <button class="btn btn-primary px-4 ms-3">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="row m-3">
+                <h2>Appoitments onBoard</h2>
+                <div class="col-lg-3"><app-appointment-cards></app-appointment-cards></div>
+                <div class="col-lg-3"><app-appointment-cards></app-appointment-cards></div>
+                <div class="col-lg-3"><app-appointment-cards></app-appointment-cards></div>
+                <div class="col-lg-3"><app-appointment-cards></app-appointment-cards></div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <app-donar-history></app-donar-history>
+    </div>
+</div>
