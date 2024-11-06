@@ -1,0 +1,75 @@
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+        <img src="/card3.jpg">
+        <form>
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="firstname" class="formbold-form-label"> Hospital Name </label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Hospital Name"
+                        class="formbold-form-input" [(ngModel)]="hospital.name" />
+                </div>
+
+                <div>
+                    <label for="lastname" class="formbold-form-label"> Zip Code</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Zip Code" 
+                        class="formbold-form-input" [(ngModel)]="hospital.zipCode" />
+                </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="email" class="formbold-form-label"> Email </label>
+                    <input type="email" name="email" id="email" placeholder="example@email.com"
+                        class="formbold-form-input" [(ngModel)]="hospital.email" />
+                </div>
+
+                <div>
+                    <label class="formbold-form-label">Type</label>
+                    <select class="formbold-form-input" name="occupation" id="occupation" [(ngModel)]="hospital.type">
+                        <option value="male">PVT</option>
+                        <option value="female">Gov</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="formbold-mb-3 formbold-input-wrapp">
+                <label for="phone" class="formbold-form-label"> Phone </label>
+                <input type="text" name="phone" id="phone" placeholder="Phone number"
+                    class="formbold-form-input" [(ngModel)]="hospital.contactNumber" />
+            </div>
+
+            <div class="formbold-mb-3">
+                <label for="age" class="formbold-form-label"> Province </label>
+                <input type="text" name="age" id="age" class="formbold-form-input" placeholder="Province"
+                    [(ngModel)]="hospital.province" />
+            </div>
+
+            <div class="formbold-mb-3">
+                <label for="password" class="formbold-form-label"> Password </label>
+                <input type="text" name="password" id="password" class="formbold-form-input" placeholder="Password"
+                    [(ngModel)]="hospital.password" />
+            </div>
+
+            <div class="formbold-mb-3">
+                <label for="address" class="formbold-form-label"> Address </label>
+                <input type="text" name="address" id="address" placeholder="Street address"
+                    class="formbold-form-input formbold-mb-3" [(ngModel)]="hospital.address" />
+            </div>
+
+            <div class="formbold-mb-3">
+                <label for="city" class="formbold-form-label"> City </label>
+                <input type="text" name="city" id="city" class="formbold-form-input" placeholder="City"
+                    [(ngModel)]="hospital.city" />
+            </div>
+
+            <div class="formbold-mb-3">
+                <label for="message" class="formbold-form-label"> Extra Message </label>
+                <textarea rows="6" name="message" id="message" class="formbold-form-input"
+                    [(ngModel)]="hospital.msg"></textarea>
+            </div>
+
+            <button class="formbold-btn" (click)="saveHospital()">Submit NOW</button>
+        </form>
+    </div>
+</div>

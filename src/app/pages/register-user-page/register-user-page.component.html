@@ -1,95 +1,91 @@
-<div class="container-fluid addImg">
+<div class="container-fluid addImg" >
     <div class="row">
-        <div class="col-lg-4 d-flex justify-content-center align-items-center ">
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
             <video width="800" height="450" autoplay loop muted>
                 <source src="/reg.webm" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
-        </div> 
+        </div>
         <div class="col-lg-8 d-flex justify-content-center align-items-center vh-100">
-            <div class="container rounded-5">
-                <div class="text">Donar Registration</div>
-                <form action="#">
+            <div class="container rounded-5" >
+                <div class="text">Donor Registration</div>
+                <form (ngSubmit)="addNewDonar()">
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="text" id="fullName" required>
+                            <input type="text" id="fullName" [(ngModel)]="donar.name" name="fullName" required>
                             <div class="underline"></div>
                             <label for="fullName">Full Name</label>
                         </div>
                         <div class="input-data">
-                            <input type="text" id="address" required>
+                            <input type="text" id="address" [(ngModel)]="donar.address" name="address" required>
                             <div class="underline"></div>
                             <label for="address">Address</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="text" id="city" required>
+                            <input type="text" id="city" [(ngModel)]="donar.city" name="city" required>
                             <div class="underline"></div>
                             <label for="city">City</label>
                         </div>
                         <div class="input-data">
-                            <input type="email" id="emailAddress" required>
+                            <input type="email" id="emailAddress" [(ngModel)]="donar.email" name="email" required>
                             <div class="underline"></div>
                             <label for="emailAddress">Email Address</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="password" id="password" required>
+                            <input type="password" id="password" [(ngModel)]="donar.password" name="password" required>
                             <div class="underline"></div>
                             <label for="password">Password</label>
                         </div>
                         <div class="input-data">
-                            <input type="password" id="confirmPassword" required>
+                            <input type="password" id="confirmPassword" [(ngModel)]="donar.confirmPassword" name="confirmPassword" required>
                             <div class="underline"></div>
                             <label for="confirmPassword">Confirm Password</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="tel" id="contactNumber" required>
+                            <input type="tel" id="contactNumber" [(ngModel)]="donar.contactNumber" name="contactNumber" required>
                             <div class="underline"></div>
                             <label for="contactNumber">Contact Number</label>
                         </div>
                         <div class="input-data">
-                            <input type="text" id="bloodGroup" required>
+                            <input type="text" id="bloodGroup" [(ngModel)]="donar.bloodGroup" name="bloodGroup" required>
                             <div class="underline"></div>
                             <label for="bloodGroup">Blood Group</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="date" id="dob" required>
+                            <input type="date" id="dob" [(ngModel)]="donar.dob" name="dob" required>
                             <div class="underline"></div>
                             <label for="dob">DOB</label>
                         </div>
                         <div class="input-data">
-                            <select id="gender" required>
+                            <select id="gender" [(ngModel)]="donar.gender" name="gender" required>
                                 <option value="" disabled selected>Choose Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
                             <div class="underline"></div>
-                            <label for="gender">Gender</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-data">
-                            <input type="number" id="age" required>
+                            <input type="number" id="age" [(ngModel)]="donar.age" name="age" required>
                             <div class="underline"></div>
                             <label for="age">Age</label>
                         </div>
                     </div>
-                    <div class="form-row submit-btn">
-                        <div class="input-data">
-                            <div class="inner"></div>
-                            <input type="submit" value="Submit">
-                        </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <button type="submit" class="btn btn-danger w-50 ">Submit</button>
                     </div>
                 </form>
             </div>
-            
         </div>
     </div>
 </div>

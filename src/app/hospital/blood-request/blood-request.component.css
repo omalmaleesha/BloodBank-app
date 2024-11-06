@@ -1,0 +1,23 @@
+
+.divider {
+    height: 2px;
+    background-color: #4f6fad; /* Match with your blue color */
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* Adjust size */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* Adjust size */
+  }
+  
+  .btn-primary {
+    background-color: #4f6fad; /* Match with your blue color */
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3b5f8b; /* Darken the button on hover */
+  }
+  

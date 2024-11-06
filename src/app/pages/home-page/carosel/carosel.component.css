@@ -1,9 +1,10 @@
+
 .full-background {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     z-index: -1;
 }
@@ -19,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.856)); 
     z-index: 1;
 }
 
@@ -46,9 +47,54 @@
 }
 
 
+.buttonCall{
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  color: beige;
+}
+
+
+
 
 @media (max-width: 768px) {
     .carousel-caption h1 {
         font-size: 2rem; /* Adjust for smaller screens */
     }
 }
+
+/* ANIMATIONS */
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;             
+      transform: translateY(20px); 
+    }
+    to {
+      opacity: 1;             
+      transform: translateY(0); 
+    }
+  }
+  
+  .animated-text {
+    animation: fadeInUp 2s ease-in-out; 
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;                  /* Start with opacity 0 */
+      transform: translateY(-20px); /* Start slightly above */
+    }
+    to {
+      opacity: 1;                  /* End with full opacity */
+      transform: translateY(0);    /* End at its original position */
+    }
+  }
+  
+  .animated-text-fadeDown {
+    animation: fadeInDown 2s ease-in-out; /* Apply fadeInDown animation */
+  }
+  
+  

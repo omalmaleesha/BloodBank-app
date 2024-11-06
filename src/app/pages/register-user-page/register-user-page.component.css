@@ -1,10 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-.addImg{
-    background-image: url('/regback.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.addImg {
+  position: relative;
+  background-image: url('/regback.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; /* Ensures child elements like ::before are confined */
 }
+
+.addImg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Adjust opacity as needed */
+  z-index: 1;
+}
+
+/* Optional: Set any text or content inside .addImg to appear above the gradient */
+.addImg > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 *{
   margin: 0;

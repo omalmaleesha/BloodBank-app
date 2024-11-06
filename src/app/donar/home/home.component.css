@@ -1,38 +1,77 @@
 .circle-container {
     position: relative;
     width: 100%;
-    max-width: 600px; /* Max width for larger screens */
+    max-width: 600px;
     margin: auto;
-    padding: 60px; /* Padding to ensure details fit */
-    height: 600px; /* Height for circular layout */
+    padding: 60px;
+    height: 600px;
 }
+
 .video {
     width: 100%;
     height: auto;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Ensures the video stays behind the details */
+    z-index: 1;
 }
+
 .detail {
+    border-radius: 10px;
     position: absolute;
-    width: 80px; /* Adjust width as necessary */
+    width: 29%;
     text-align: center;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
+    background-color: rgb(248, 79, 79);
+    color: #ffff;
+    padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Ensures details are above the video */
+    z-index: 2;
 }
+
 /* Positioning details in a circular layout */
 .detail1 { top: 5%; left: 50%; transform: translate(-50%, -50%); }
-.detail2 { top: 20%; right: 0%; transform: translate(-50%, -50%); }
-.detail3 { top: 70%; right: 0%; transform: translate(-50%, -50%); }
+.detail2 { top: 20%; right: -20%; transform: translate(-50%, -50%); }
+.detail3 { top: 70%; right: -20%; transform: translate(-50%, -50%); }
 .detail6 { bottom: 30%; left: 10%; transform: translate(-50%, 50%); }
 .detail7 { top: 50%; left: 0%; transform: translate(-50%, -50%); }
 .detail8 { top: 20%; left: 10%; transform: translate(-50%, -50%); }
-.detail9 { top: 50%; right: -15%; transform: translate(-50%, -50%); }
+.detail9 { top: 50%; right: -30%; transform: translate(-50%, -50%); }
 .detail10 { bottom: 5%; left: 50%; transform: translate(-50%, 50%); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .circle-container {
+        height: 400px; /* Adjust circle container height for smaller screens */
+        padding: 30px;
+    }
+    .detail {
+        width: 60px; /* Smaller detail box size on smaller screens */
+        padding: 5px;
+    }
+    /* Adjusted positions for details */
+    .detail1 { top: 5%; left: 50%; transform: translate(-50%, -50%); }
+    .detail2 { top: 20%; left: 50%; transform: translate(-50%, -50%); }
+    .detail3 { top: 35%; left: 50%; transform: translate(-50%, -50%); }
+    .detail6 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .detail7 { top: 65%; left: 50%; transform: translate(-50%, -50%); }
+    .detail8 { top: 80%; left: 50%; transform: translate(-50%, -50%); }
+    .detail9 { top: 95%; left: 50%; transform: translate(-50%, -50%); }
+    .detail10 { bottom: 5%; left: 50%; transform: translate(-50%, -50%); }
+}
+
+
+@media (max-width: 576px) {
+    .circle-container {
+        height: 300px; /* Further reduce height for very small screens */
+    }
+    .detail {
+        width: 50px;
+        padding: 5px;
+        font-size: 0.8em; /* Smaller text on very small screens */
+    }
+}
+
 
 .card{
     border:none;

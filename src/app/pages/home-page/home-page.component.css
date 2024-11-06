@@ -1,10 +1,13 @@
 
 
 .content {
-    width: 100%;
+    width: 98.3%;
     height: 2rem;
-    background-color: aquamarine;
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
     text-align: start;
+    color: #dee2e6;
     display: flex;
     align-items: center; /* Centers items vertically */
     gap: 0.5rem; /* Adds space between the headers, optional */
@@ -26,8 +29,13 @@
 .col-lg-6 {
     height: 100vh; /* Adjust to desired height */
 }
-.col-lg-6 {
-    height: 100vh; /* Adjust to desired height */
+@media (max-width: 767.98px) { /* Small screens (Bootstrap 'sm' breakpoint) */
+    .col-lg-6 {
+        height: 40vh; /* Adjusted height for small screens */
+    }
+    .content{
+        width: 93.8%;
+    }
 }
 .list {
     background-color: #f8f9fa; /* Light background */
@@ -51,3 +59,15 @@
 .list-group-item:hover {
     background-color: #FFC7C7; /* Light grey on hover */
 }
+
+/* Optional CSS to adjust text style */
+h2 span {
+    font-weight: bold; /* Makes the words bold */
+  }
+  
+  /* Optional: Adjust the subtitle color */
+  p.text-muted {
+    font-size: 1.2rem; /* Adjust the font size */
+    color: #6c757d; /* Lighter grey for subtitle */
+  }
+  

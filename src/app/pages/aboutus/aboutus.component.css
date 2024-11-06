@@ -1,0 +1,38 @@
+.background-image {
+    background-image: url('/about.jpg'); /* Set your image as the background */
+    background-size: cover; /* Cover the entire div */
+    background-position: center; /* Center the background image */
+    height: 600px; /* Set a fixed height for the div */
+    position: relative; /* Ensure that children are positioned relative to this div */
+}
+
+.background-image::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Cover the top */
+    left: 0; /* Cover the left */
+    right: 0; /* Cover the right */
+    bottom: 0; /* Cover the bottom */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+    z-index: 0; /* Ensure it is below the text */
+}
+
+.overlay-text {
+    position: absolute; /* Position the text absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to center */
+    color: white; /* Text color */
+    text-align: center; /* Center the text */
+    z-index: 1; /* Ensure text is above the overlay */
+    padding: 10px; /* Padding around the text */
+    background-color: transparent; /* No background for the text */
+}
+
+.red-line {
+    border: 0; /* Remove default border */
+    height: 3px; /* Set height for the line */
+    background-color: rgb(255, 255, 255); /* Red color for the line */
+    margin: 10px 0; /* Margin above and below the line */
+}
+

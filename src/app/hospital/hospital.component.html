@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="d-flex justify-content-center mb-1 text-danger fw-bolder"> 
+        <h1>Blood Inventory</h1>
+    </div>
+    <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList01">
+        <app-qty [inventory]="inventory"></app-qty>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList02">
+        <app-qty [inventory]="inventory"></app-qty>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <app-blood-request [id]="id"></app-blood-request>
+        </div>
+        <div class="col-lg-6">
+            <app-request [id]="id" ></app-request>
+        </div>
+    </div>
+    <div class="row">
+        <div id="wrapper" class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+              <h1>Requests Pending</h1>
+            </div>
+          
+            <div class="table-responsive">
+              <table id="keywords">
+                <thead>
+                  <tr>
+                    <th><span>No</span></th>
+                    <th><span>RequestID</span></th>
+                    <th><span>Blood Type</span></th>
+                    <th><span>Amount</span></th>
+                    <th><span>Note</span></th>
+                    <th><span>status</span></th>
+                    <th><span>Delete</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let requests of bloodRequestLists; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{requests.requestID}}</td>
+                    <td>{{requests.bloodType}}</td>
+                    <td>{{requests.amount}}</td>
+                    <td>{{requests.message}}</td>
+                    <td>{{requests.status}}</td>
+                    <td><button class="btn btn-danger" (click)="delete(requests)"><i class="bi bi-check2-circle"></i></button></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>          
+    </div>
+    <div class="row">
+        <div id="wrapper" class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+              <h1>Approved Donar Completed</h1>
+            </div>
+          
+            <div class="table-responsive">
+              <table id="keywords">
+                <thead>
+                  <tr>
+                    <th><span>No</span></th>
+                    <th><span>RequestId</span></th>
+                    <th><span>DonarID</span></th>
+                    <th><span>AppointmentID</span></th>
+                    <th><span>Amount</span></th>
+                    <th><span>Date</span></th>
+                    <th><span>Status</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let req of RequestListsOfApproved; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{req.approvedRequestId}}</td>
+                    <td>{{req.donarID}}</td>
+                    <td>{{req.appointmentID}}</td>
+                    <td>{{req.amount}}</td>
+                    <td>{{req.date}}</td>
+                    <td>{{req.status}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <div id="wrapper" class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+              <h1>Requests Approved</h1>
+            </div>
+          
+            <div class="table-responsive">
+              <table id="keywords">
+                <thead>
+                  <tr>
+                    <th><span>HistoryID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Blood Type</span></th>
+                    <th><span>Donation Date</span></th>
+                    <th><span>Donation Location</span></th>
+                    <th><span>Remarks</span></th>
+                    <th><span>Donation Date</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <!-- Data rows go here -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>          
+    </div>
+</div>

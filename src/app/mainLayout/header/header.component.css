@@ -31,3 +31,51 @@
     color: #ffffff !important;
     font-weight: normal;
 }
+
+
+
+
+/* sign button animation */
+.hovering {
+    background-color: #fdfdfd;  /* Initial color */
+    color: rgb(0, 0, 0);       /* Optional padding */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .hovering:hover {
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #ffffff;
+  }
+  
+
+  .nav-link {
+    position: relative;
+    color: black; /* Original text color */
+    text-decoration: none; /* Remove default underline */
+    padding-bottom: 4px; /* Space for underline effect */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .nav-link:hover {
+    color: red; /* Optional: change color on hover */
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255); /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for the underline */
+  }
+  
+  .nav-link:hover::after {
+    width: 100%; /* Full width on hover */
+  }
+  

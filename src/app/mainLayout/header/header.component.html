@@ -21,12 +21,12 @@
                     <a class="nav-link" href="#">Donation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact us</a>
+                    <a class="nav-link"  routerLink="/aboutus" href="#">Contact us</a>
                 </li>
             </ul>
             <div class="ml-auto" style="margin-right: 15px;">
-                <button class="btn btn-outline-light me-2 fw-bold" type="button">Donate Now</button>
-                <button routerLink="/login" class="btn btn-light fw-bold " type="button">Sign Up</button>
+                <button routerLink="/login" *ngIf="showDonationButton" class="btn btn-outline-light me-2 fw-bold" type="button">Donate Now</button>
+                <button routerLink="/login" *ngIf="showSignUpButton" class="btn btn-light hovering fw-bold " type="button" (click)="toggleSignIn()">{{ isSignedIn ? 'Sign Out' : 'Sign Up' }}</button>
             </div>
         </div>
     </nav>

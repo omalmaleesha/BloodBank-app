@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { AuthService, LoginResponse } from '../../services/auth.service';
+import { Router, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,26 +22,30 @@ export class LoginComponent {
   }
 
   onLogin() {
-    const { email, password } = this.loginForm.value;
+    const { email, password } = this.loginForm.value; 
     this.authService.login(email, password).subscribe(
-      (role: string) => {
-        if (role === 'ADMIN') {
-          this.router.navigate(['/admin-dashboard']);
-        } else if (role === 'DONAR') {
-          this.router.navigate(['/Donar-Home']);
-        } else if (role === 'HOSPITAL') {
-          this.router.navigate(['/hospital-dashboard']);
-        } else {
-          alert('Login Failed');
+      (response: LoginResponse) => {
+        console.log('Login successful', response);
+        if (response.type === 'ADMIN') {
+          this.router.navigate(['/Admin'],{ queryParams: { id: response.id } }); 
+        }else if(response.type === 'DONAR') {
+          this.router.navigate(['/Donar-Home'],{ queryParams: { id: response.id } }); 
+        }else if(response.type === 'HOSPITAL') {
+          this.router.navigate(['/Hospital'],{ queryParams: { id: response.id } }); 
         }
       },
-      (error) => {
-        alert('An error occurred during login');
-        console.error(error);
+      error => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Login failed. Please check your credentials.',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
       }
     );
   }
-
-  
-  
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']); // Navigate to login page after logout
+  }
 }
