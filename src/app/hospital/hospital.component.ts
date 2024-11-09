@@ -5,34 +5,66 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, NgFor } from '@angular/common';
 import { QtyComponent } from '../admin/qty/qty.component';
+import Aos from 'aos';
+import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-hospital',
   standalone: true,
-  imports: [RequestComponent,BloodRequestComponent,NgFor,QtyComponent],
+  imports: [RequestComponent,BloodRequestComponent,NgFor,QtyComponent,FormsModule,CommonModule],
   templateUrl: './hospital.component.html',
   styleUrl: './hospital.component.css'
 })
 export class HospitalComponent implements OnInit{
   public id: string | null = null;
+  public hospital:any = {};
   public bloodRequestLists:any = [];
   public inventoryList:any = [];
   public inventoryList01:any = [];
   public inventoryList02:any = [];
   public RequestListsOfApproved:any = [];
+  public RequestListsOfCompleted:any = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient ,private router: Router) {}
 
   ngOnInit() {
+    Aos.init();
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       console.log("ID from query params:", this.id);
     });
+    this.findHospitalDetails();
     this.loadBloodRequestList();
     this.loadInventory();
     this.loadhospitalCompletedApproved();
+    this.loadCompletedRequests();
   }
 
+
+  findHospitalDetails(){
+    this.http.get(`http://localhost:8080/Hospital/findById/${this.id}`).subscribe(
+      data => {
+        console.log("Data loaded of hospital:", data);
+        this.hospital = data;
+      },
+      error => {
+        console.error("Error loading donor details:", error);
+      }
+    );
+  }
+
+  loadCompletedRequests(){
+    this.http.get("http://localhost:8080/BloodRequest/completed").subscribe(
+      data => {
+        console.log("Data loaded:", data);
+        this.RequestListsOfCompleted = data;
+      },
+      error => {
+        console.error("Error loading donor details:", error);
+      }
+    );
+  }
 
   loadBloodRequestList(){
     this.http.get("http://localhost:8080/BloodRequest/pending").subscribe(
@@ -84,6 +116,27 @@ export class HospitalComponent implements OnInit{
         console.error("Error loading donor details:", error);
       }
     );
+  }
+
+  public hospitalTemp:any = {}
+  updateHospitalDetails(hospital:any){
+    this.hospitalTemp = hospital;
+
+  }
+  
+
+
+  deleteHospital(){
+
+  }
+
+  saveHospital(){
+    this.http.put("http://localhost:8080/Hospital/update",this.hospitalTemp, { responseType: 'text' }).subscribe(data=>{
+      Swal.fire({
+        title: "Updated the Hospital",
+        icon: "success"
+      });
+    })
   }
 
 }

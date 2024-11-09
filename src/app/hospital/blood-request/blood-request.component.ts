@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-blood-request',
@@ -20,6 +21,7 @@ export class BloodRequestComponent implements OnInit{
   ngOnInit(): void {
     console.log(this.id);
     this.loadhospitaldata(this.id);
+    Aos.init();
   }
 
 

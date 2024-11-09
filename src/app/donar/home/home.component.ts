@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import Aos from 'aos';
 
 
 @Component({
@@ -17,11 +18,12 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
   public id: string | null = null;
-  public donar: any;
+  public donar: any = {};
 
   constructor(private route: ActivatedRoute, private http: HttpClient ,private router: Router) {}
 
   ngOnInit() {
+    Aos.init();
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       console.log("ID from query params:", this.id);
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
   loadDetails(id: String) {
     this.http.get(`http://localhost:8080/Donar/findById/${id}`).subscribe(
       data => {
-        console.log("Data loaded:", data);
+        console.log("Data loaded home component:", data);
         this.donar = data;
       },
       error => {
@@ -92,6 +94,7 @@ deleteDonar() {
     );
   }
 }
+
 
 
   

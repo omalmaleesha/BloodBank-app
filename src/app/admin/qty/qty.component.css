@@ -1,6 +1,13 @@
 @keyframes progress {
-    0% { --percentage: 0; }
-    100% { --percentage: var(--value); }
+    0% {
+        --percentage: 0;
+    }
+    50% {
+        --percentage: 100;
+    }
+    100% {
+        --percentage: var(--value);
+    }
 }
 
 @property --percentage {
@@ -13,8 +20,8 @@
     --percentage: var(--value);
     --primary: rgb(182, 39, 39);
     --secondary: rgb(255, 204, 204);
-    --size: 150px; /* Reduced size for better responsiveness */
-    animation: progress 2s 0.5s forwards;
+    --size: 150px; /* Adjusted size for responsiveness */
+    animation: progress 6s ease-in-out forwards; /* Slow down the transition */
     width: var(--size);
     aspect-ratio: 1;
     border-radius: 50%;
@@ -44,65 +51,4 @@
     font-family: Helvetica, Arial, sans-serif;
     font-size: calc(var(--size) / 5);
     color: var(--primary);
-}
-
-/* demo */
-body {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    background: #f0f8ff;
-}
-
-/* YouTube button styling */
-#youtube {
-    z-index: 2;
-    display: block;
-    width: 100px;
-    height: 70px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: red;
-    border-radius: 50% / 11%;
-    transition: transform 0.5s;
-}
-
-#youtube:hover,
-#youtube:focus {
-    transform: scale(1.1);
-}
-
-#youtube::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 7.5%;
-    left: -6%;
-    width: 112%;
-    height: 85%;
-    background: red;
-    border-radius: 9% / 50%;
-}
-
-#youtube::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    width: 45px;
-    height: 30px;
-    border: 15px solid transparent;
-    box-sizing: border-box;
-    border-left: 30px solid white;
-}
-
-#youtube span {
-    font-size: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
 }

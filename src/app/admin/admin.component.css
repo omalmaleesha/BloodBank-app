@@ -1,0 +1,70 @@
+.backColor{
+    background: #EF3B36;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFFFFF, #EF3B36);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFFFFF, #EF3B36); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
+
+}
+.lifeflow-heading {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.4rem; /* Base size for large screens */
+    background: linear-gradient(to right, #dd1818, #ff4b2b); /* Red gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.text-custom {
+    font-size: 1rem; /* Base font size for smaller text */
+    color: inherit; /* Inherit parent text color */
+    font-weight: normal; /* Keep weight normal for the small tag */
+}
+
+.text-black {
+    color: black; /* Make 'Blood' black */
+}
+
+.text-red {
+    color: #dd1818; /* Make 'Free' red */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .lifeflow-heading {
+        font-size: 2.5rem; /* Adjust for smaller screens */
+    }
+    .text-custom {
+        font-size: 0.9rem; /* Adjust small text size for smaller screens */
+    }
+}
+
+
+.highlight {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cover {
+    background-image: url('/bloodfree.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 97vh; /* Ensures the container takes up full viewport height */
+    width: 100%; 
+}

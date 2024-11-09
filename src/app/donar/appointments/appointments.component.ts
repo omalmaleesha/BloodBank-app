@@ -13,25 +13,36 @@ import Swal from 'sweetalert2';
   styleUrl: './appointments.component.css'
 })
 export class AppointmentsComponent implements OnInit {
-  @Input() public donar: any; 
+  @Input() public donId:any;
+  public donar: any = {}; 
   public id: string | null = null;
   public appoitmentsList: any = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('Received Donar:', this.donar);
-    this.id = this.donar?.donorID;
-    if (this.id) {
-      this.loadDataToTable(this.id); 
-    } else {
-      console.error('No ID found in query parameters.');
-    }
+    console.log('Received Donar appointment:', this.donId);
+    this.getDonar(this.donId);
+    this.loadDataToTable(); 
   }
 
-  loadDataToTable(id: string) {
-    this.http.get(`http://localhost:8080/Appointment/findByDonarId/${id}`).subscribe(
+  getDonar(id:any){
+    this.http.get(`http://localhost:8080/Donar/findById/${id}`).subscribe(
       (data: any) => {
+        console.log(data);
+        this.donar = data;
+        this.id = this.donar.donorID;
+      },
+      error => {
+        console.error("Error loading donor details:", error);
+      }
+    );
+  }
+
+  loadDataToTable() {
+    this.http.get(`http://localhost:8080/Appointment/findByDonarId/${this.donId}`).subscribe(
+      (data: any) => {
+        console.log('apponitmentlist:',data);
         this.appoitmentsList = data;
       },
       error => {
@@ -62,6 +73,7 @@ export class AppointmentsComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         });
+        this.loadDataToTable(); 
         console.log(appointmentData);
         console.log('Appointment saved successfully:', response);
       },
@@ -104,6 +116,7 @@ export class AppointmentsComponent implements OnInit {
     console.log(id);
     this.http.delete(`http://localhost:8080/Appointment/delete/${id}`).subscribe(
       response => {
+        this.loadDataToTable();
         Swal.fire("Appointment Deleted!");
         console.log('Appointment saved successfully:', response);
       },
@@ -112,6 +125,8 @@ export class AppointmentsComponent implements OnInit {
       }
     );
   }
+
+
 
 
   

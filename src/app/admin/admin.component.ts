@@ -58,7 +58,7 @@ export class AdminComponent implements OnInit{
 
 
   deleteAdmin(adminID:any){
-
+    console.log(adminID);
   }
 
 

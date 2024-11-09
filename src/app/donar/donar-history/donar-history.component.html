@@ -7,19 +7,21 @@
     <table id="keywords">
       <thead>
         <tr>
-          <th><span>HistoryID</span></th>
-          <th><span>Name</span></th>
-          <th><span>Blood Type</span></th>
+          <th><span>No</span></th>
+          <th><span>RecordID</span></th>
+          <th><span>HospitalID</span></th>
           <th><span>Donation Date</span></th>
-          <th><span>Donation Location</span></th>
-          <th><span>Remarks</span></th>
-          <th><span>Donation Date</span></th>
+          <th><span>Amount</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <!-- Data rows go here -->
-        </tr>
+        <tr *ngFor="let listItem of historyList; index as i">
+          <td>{{i+1}}</td>
+          <td>{{listItem.recordID}}</td>
+          <td>{{listItem.hospitalID}}</td>
+          <td>{{listItem.donationDate}}</td>
+          <td>{{listItem.amount}}</td>
+      </tr> 
       </tbody>
     </table>
   </div>

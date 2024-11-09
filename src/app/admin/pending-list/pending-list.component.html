@@ -18,6 +18,7 @@
                     <th><span>Remarks</span></th>
                     <th><span>Statuse</span></th>
                     <th><span>Approve</span></th>
+                    <th><span>Cancel</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,8 +31,9 @@
                         <td>{{Appointment.address}}</td>
                         <td>{{Appointment.remarks}}</td>
                         <td>{{Appointment.status}}</td>
-                        <td><button class="btn btn-danger" (click)="approve(Appointment)"><i class="bi bi-check2-circle"></i></button></td>
-                    </tr>
+                        <td><button class="btn btn-success" (click)="approve(Appointment)"><i class="bi bi-check2-circle"></i></button></td>
+                        <td><button class="btn btn-danger" (click)="cancel(Appointment)"><i class="bi bi-trash3"></i></button></td>
+                      </tr>
                 </tbody>
               </table>
             </div>
@@ -74,10 +76,50 @@
             </div>
           </div>
     </div>
+
+    <div class="row mt-3">
+      <div id="wrapper" class="container">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+            <h1>Canceled Appointments</h1>
+          </div>
+        
+          <div class="table-responsive">
+            <table id="keywords">
+              <thead>
+                <tr>
+                  <th><span>No</span></th>
+                  <th><span>AppointmentID</span></th>
+                  <th><span>DonarID</span></th>
+                  <th><span>Blood Type</span></th>
+                  <th><span>Donation Date</span></th>
+                  <th><span>Donation Location</span></th>
+                  <th><span>Remarks</span></th>
+                  <th><span>Statuse</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let canceled of canceledAppointmentList; index as i">
+                      <td>{{i+1}}</td>
+                      <td>{{canceled.appointmentID}}</td>
+                      <td>{{canceled.donarID}}</td>
+                      <td>{{canceled.bloodType}}</td>
+                      <td>{{canceled.preferDate}}</td>
+                      <td>{{canceled.address}}</td>
+                      <td>{{canceled.remarks}}</td>
+                      <td>{{canceled.status}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </div>
+
+
+
     <div class="row">
         <div class="d-flex align-items-center justify-content-center">
             <h1 class="text-black fw-bolder mb-0 m-3" >Hospital Manager</h1>
-            <button class="btn btn-danger mt-3" (click)="navigate()">Add New Hospital</button>
+            <button class="btn btn-outline-danger mt-3" (click)="navigate()">Add New Hospital</button>
         </div>
         
         <div id="wrapper" class="container">
@@ -99,6 +141,7 @@
                     <th><span>Type</span></th>
                     <th><span>Status</span></th>
                     <th><span>Approved</span></th>
+                    <th><span>Canceled</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -112,11 +155,93 @@
                         <td>{{requests.massage}}</td>
                         <td>{{requests.type}}</td>
                         <td>{{requests.status}}</td>
-                        <td><button class="btn btn-danger" (click)="approveBlood(requests)"><i class="bi bi-check2-circle"></i></button></td>
-                    </tr>
+                        <td><button class="btn btn-success" (click)="approveBlood(requests)"><i class="bi bi-check2-circle"></i></button></td>
+                        <td><button class="btn btn-danger" (click)="cancelBloodRequest(requests)"><i class="bi bi-trash3"></i></button></td>
+                      </tr>
                 </tbody>
               </table>
             </div>
           </div>
     </div>
+    
+  
+    <div class="row pt-3">
+      <div id="wrapper" class="container">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+            <h1>Completed Blood Request</h1>
+          </div>
+        
+          <div class="table-responsive">
+            <table id="keywords">
+              <thead>
+                <tr>
+                  <th><span>No</span></th>
+                  <th><span>HospitalID</span></th>
+                  <th><span>name</span></th>
+                  <th><span>Blood Type</span></th>
+                  <th><span>Amount</span></th>
+                  <th><span>ContactNumber</span></th>
+                  <th><span>Massage</span></th>
+                  <th><span>Type</span></th>
+                  <th><span>Status</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let requests of completedBloodRequest; index as i">
+                      <td>{{i+1}}</td>
+                      <td>{{requests.hospitalID}}</td>
+                      <td>{{requests.name}}</td>
+                      <td>{{requests.bloodType}}</td>
+                      <td>{{requests.amount}}</td>
+                      <td>{{requests.contactNumber}}</td>
+                      <td>{{requests.massage}}</td>
+                      <td>{{requests.type}}</td>
+                      <td>{{requests.status}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </div>
+
+
+
+  <div class="row pt-3">
+    <div class="d-flex align-items-center justify-content-center">
+        <h1 class="text-black fw-bolder mb-0 m-3" >FeedBacks</h1>
+    </div>
+    
+    <div id="wrapper" class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+          <h1>Blood Request</h1>
+        </div>
+      
+        <div class="table-responsive">
+          <table id="keywords">
+            <thead>
+              <tr>
+                <th><span>No</span></th>
+                <th><span>FeedBackID</span></th>
+                <th><span>Text</span></th>
+                <th><span>Date</span></th>
+                <th><span>Time</span></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let requests of feedBackList; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{requests.feedbackID}}</td>
+                    <td>{{requests.text}}</td>
+                    <td>{{requests.date}}</td>
+                    <td>{{requests.time}}</td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+
+
+
+
 </div>

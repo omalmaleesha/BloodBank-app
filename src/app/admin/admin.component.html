@@ -1,22 +1,45 @@
-<div class="container-fluid">
-    <div class="row mt-2">
-        <div class="d-flex justify-content-center mb-1 text-danger fw-bolder"> 
-            <h1>Blood Inventory</h1>
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+    <div class="cover">
+        <div class="row pt-4">
+            <div class="d-flex justify-content-center mb-1">
+                <h1 class="text-center fw-bolder lifeflow-heading">
+                    LifeFlow Collection
+                    <small class="text-custom">
+                        <span class="text-black">by Blood</span>
+                        <span class="text-red">Free</span>
+                    </small>
+                </h1>
+            </div>
+
         </div>
-        <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList01">
-            <app-qty [inventory]="inventory"></app-qty>
+        <div class="row">
+            <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1"
+                *ngFor="let inventory of inventoryList01">
+                <app-qty [inventory]="inventory"></app-qty>
+            </div>
+        </div>
+        <div class="row mt-3 pb-3">
+            <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1"
+                *ngFor="let inventory of inventoryList02">
+                <app-qty [inventory]="inventory"></app-qty>
+            </div>
+        </div>
+
+        <div class="row pt-5 text-center">
+            <h6>Blood can symbolize struggle, violence, and conflict, particularly in expressions such as
+                <span class="highlight">"bloodshed"</span> or
+                <span class="highlight">"blood feud."</span>
+            </h6>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList02">
-            <app-qty [inventory]="inventory"></app-qty>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="container-fluid">
+
+    <div class="row pt-0">
+        <div class="container-fluid backColor pb-4" >
+            <div class="d-flex justify-content-center" data-aos="fade-up">
+                <h2 class=" text-white fw-bold">Admin Informations</h2>
+            </div>
             <div class="row">
-                <div class="container mt-5">
+                <div class="container pt-1 " data-aos="fade-up">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-7">
                             <div class="card border border-danger p-1 py-4">
@@ -26,14 +49,14 @@
                                 </div>
 
                                 <div class="text-center mt-3">
-                                    <span class="bg-secondary p-1 px-4 rounded text-white">Admin ID
+                                    <span class="backColor p-1 px-4 rounded text-white fw-bolder">Admin ID
                                         {{admin.adminID}}</span>
-                                    <h5 class="mt-2 mb-0">{{ admin.name }}</h5>
-                                    <span>{{ admin.email }} , </span>
-                                    <span>{{ admin.contactNumber }}</span>
+                                    <h5 class="mt-2 mb-0 fw-bold">Name: {{ admin.name }}</h5>
+                                    <span class="fw-bold">Email: {{ admin.email }} , </span>
+                                    <span class="fw-bold">Number: {{ admin.contactNumber }}</span>
 
-                                    <div class="buttons">
-                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    <div class="buttons mt-2">
+                                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal" (click)="updateAdminDetails(admin)">
                                             Edit
                                         </button>
@@ -91,7 +114,8 @@
                                             </div>
                                         </div>
 
-                                        <button class="btn btn-danger px-4 ms-3" (click)="deleteAdmin(admin.adminID)">
+                                        <button class="btn btn-outline-danger fw-bold px-4 ms-3"
+                                            (click)="deleteAdmin(admin.adminID)">
                                             Delete
                                         </button>
                                     </div>
@@ -114,7 +138,7 @@
 
     </div>
     <div class="row">
-       
-           
+
+
     </div>
 </div>

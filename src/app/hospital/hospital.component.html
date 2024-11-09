@@ -1,119 +1,188 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="d-flex justify-content-center mb-1 text-danger fw-bolder"> 
-        <h1>Blood Inventory</h1>
+  <div class="cover">
+    <div class="row pt-4">
+      <div class="d-flex justify-content-center mb-1">
+        <h1 class="text-center fw-bolder lifeflow-heading">
+          LifeFlow Collection
+          <small class="text-custom">
+            <span class="text-black">by Blood</span>
+            <span class="text-red">Free</span>
+          </small>
+        </h1>
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList01">
+    <div class="row">
+      <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList01">
         <app-qty [inventory]="inventory"></app-qty>
+      </div>
     </div>
-    </div>
-    <div class="row">
+    <div class="row pb-4">
       <div class="col-6 col-sm-4 col-lg-3 d-flex justify-content-center mb-1" *ngFor="let inventory of inventoryList02">
         <app-qty [inventory]="inventory"></app-qty>
+      </div>
     </div>
+    <div class="row pt-5 text-center">
+      <h6>Blood can symbolize struggle, violence, and conflict, particularly in expressions such as
+        <span class="highlight">"bloodshed"</span> or
+        <span class="highlight">"blood feud."</span>
+      </h6>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <app-blood-request [id]="id"></app-blood-request>
-        </div>
-        <div class="col-lg-6">
-            <app-request [id]="id" ></app-request>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 colColor1">
+      <app-blood-request [id]="id"></app-blood-request>
     </div>
-    <div class="row">
-        <div id="wrapper" class="container">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
-              <h1>Requests Pending</h1>
-            </div>
-          
-            <div class="table-responsive">
-              <table id="keywords">
-                <thead>
-                  <tr>
-                    <th><span>No</span></th>
-                    <th><span>RequestID</span></th>
-                    <th><span>Blood Type</span></th>
-                    <th><span>Amount</span></th>
-                    <th><span>Note</span></th>
-                    <th><span>status</span></th>
-                    <th><span>Delete</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let requests of bloodRequestLists; index as i">
-                    <td>{{i+1}}</td>
-                    <td>{{requests.requestID}}</td>
-                    <td>{{requests.bloodType}}</td>
-                    <td>{{requests.amount}}</td>
-                    <td>{{requests.message}}</td>
-                    <td>{{requests.status}}</td>
-                    <td><button class="btn btn-danger" (click)="delete(requests)"><i class="bi bi-check2-circle"></i></button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>          
+    <div class="col-lg-6 colColor1">
+      <app-request [id]="id"></app-request>
     </div>
-    <div class="row">
-        <div id="wrapper" class="container">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
-              <h1>Approved Donar Completed</h1>
-            </div>
-          
-            <div class="table-responsive">
-              <table id="keywords">
-                <thead>
-                  <tr>
-                    <th><span>No</span></th>
-                    <th><span>RequestId</span></th>
-                    <th><span>DonarID</span></th>
-                    <th><span>AppointmentID</span></th>
-                    <th><span>Amount</span></th>
-                    <th><span>Date</span></th>
-                    <th><span>Status</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let req of RequestListsOfApproved; index as i">
-                    <td>{{i+1}}</td>
-                    <td>{{req.approvedRequestId}}</td>
-                    <td>{{req.donarID}}</td>
-                    <td>{{req.appointmentID}}</td>
-                    <td>{{req.amount}}</td>
-                    <td>{{req.date}}</td>
-                    <td>{{req.status}}</td>
-                  </tr>
-                </tbody>
-              </table>
+  </div>
+
+
+
+  <div class="row pt-3">
+    <div class="container-fluid  pb-4">
+      <div class="d-flex justify-content-center" data-aos="fade-up">
+        <h1 class=" text-black fw-bold">Hospital Informations</h1>
+      </div>
+      <div class="row">
+        <div class="container pt-1 " data-aos="fade-up">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+              <div class="card border border-danger p-1 py-4">
+                <!-- Added border and border-dark classes -->
+                <div class="text-center">
+                  <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle" />
+                </div>
+
+                <div class="text-center mt-1">
+                  <span class="backColor p-1 px-4 rounded text-white fw-bolder">Hospital ID
+                    {{hospital.adminID}}</span>
+                  <h5 class="mt-2 mb-0 fw-bold">Name: {{ hospital.name }}</h5>
+                  <span class="fw-bold">Email: {{ hospital.email }} , </span>
+                  <span class="fw-bold">Number: {{ hospital.contactNumber }}</span>
+                  <h5 class="mt-1 mb-0 fw-semibold">Province: {{ hospital.province }}</h5>
+                  <h5 class="mt-1 mb-0 fw-semibold">ZipCode: {{ hospital.zipCode }}</h5>
+
+                  <div class="buttons mt-2 d-flex justify-content-center align-items-center">
+                    <button class="btn btn-outline-danger fw-bold px-4 ms-3" (click)="deleteHospital()">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <div id="wrapper" class="container">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
-              <h1>Requests Approved</h1>
-            </div>
-          
-            <div class="table-responsive">
-              <table id="keywords">
-                <thead>
-                  <tr>
-                    <th><span>HistoryID</span></th>
-                    <th><span>Name</span></th>
-                    <th><span>Blood Type</span></th>
-                    <th><span>Donation Date</span></th>
-                    <th><span>Donation Location</span></th>
-                    <th><span>Remarks</span></th>
-                    <th><span>Donation Date</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <!-- Data rows go here -->
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>          
+  </div>
+
+
+
+
+
+
+  <div class="row pt-5">
+    <div id="wrapper" class="container">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+        <h1>Requests Pending</h1>
+      </div>
+
+      <div class="table-responsive">
+        <table id="keywords">
+          <thead>
+            <tr>
+              <th><span>No</span></th>
+              <th><span>RequestID</span></th>
+              <th><span>Blood Type</span></th>
+              <th><span>Amount</span></th>
+              <th><span>Note</span></th>
+              <th><span>status</span></th>
+              <th><span>Delete</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let requests of bloodRequestLists; index as i">
+              <td>{{i+1}}</td>
+              <td>{{requests.requestID}}</td>
+              <td>{{requests.bloodType}}</td>
+              <td>{{requests.amount}}</td>
+              <td>{{requests.message}}</td>
+              <td>{{requests.status}}</td>
+              <td><button class="btn btn-danger" (click)="delete(requests)"><i class="bi bi-trash3"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+  <div class="row pt-5">
+    <div id="wrapper" class="container">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+        <h1>Approved Donar Completed</h1>
+      </div>
+
+      <div class="table-responsive">
+        <table id="keywords">
+          <thead>
+            <tr>
+              <th><span>No</span></th>
+              <th><span>RequestId</span></th>
+              <th><span>DonarID</span></th>
+              <th><span>AppointmentID</span></th>
+              <th><span>Amount</span></th>
+              <th><span>Date</span></th>
+              <th><span>Status</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let req of RequestListsOfApproved; index as i">
+              <td>{{i+1}}</td>
+              <td>{{req.approvedRequestId}}</td>
+              <td>{{req.donarID}}</td>
+              <td>{{req.appointmentID}}</td>
+              <td>{{req.amount}}</td>
+              <td>{{req.date}}</td>
+              <td>{{req.status}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5 pb-5">
+    <div id="wrapper" class="container">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+        <h1>Requests Completed</h1>
+      </div>
+
+      <div class="table-responsive">
+        <table id="keywords">
+          <thead>
+            <tr>
+              <th><span>No</span></th>
+              <th><span>RequestID</span></th>
+              <th><span>BloodType</span></th>
+              <th><span>Amount</span></th>
+              <th><span>Type</span></th>
+              <th><span>Massage</span></th>
+              <th><span>Status</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let req of RequestListsOfCompleted; index as i">
+              <td>{{i+1}}</td>
+              <td>{{req.requestID}}</td>
+              <td>{{req.bloodType}}</td>
+              <td>{{req.amount}}</td>
+              <td>{{req.type}}</td>
+              <td>{{req.message}}</td>
+              <td>{{req.status}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

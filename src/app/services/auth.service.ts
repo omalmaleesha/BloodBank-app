@@ -17,7 +17,7 @@ export class AuthService  {
       tap(response => {
         if (response && response.id) {
           localStorage.setItem('userToken', response.id); // Save token or unique identifier
-          this.loggedIn.next(true); // Update the BehaviorSubject
+          this.loggedIn.next(true); 
         }
       })
     );
@@ -29,13 +29,13 @@ export class AuthService  {
 
   // Logout method to clear stored token
   logout(): void {
-    localStorage.removeItem('userToken'); // Remove token from storage
-    this.loggedIn.next(false); // Update the BehaviorSubject
+    localStorage.removeItem('userToken'); 
+    this.loggedIn.next(false); 
   }
 
   // Helper to check if the token exists in localStorage
   private checkToken(): boolean {
-    return !!localStorage.getItem('userToken'); // Check if the token exists
+    return !!localStorage.getItem('userToken'); 
   }
 }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-request',
@@ -23,6 +24,7 @@ export class RequestComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.id);
+    Aos.init();
   }
 
   saveApproveRequest(){

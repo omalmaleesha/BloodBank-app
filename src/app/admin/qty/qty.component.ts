@@ -11,10 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class QtyComponent implements OnInit{
   @Input() public inventory:any;
+  public roundedAmount: number = 0; 
 
   constructor(private route: ActivatedRoute, private http: HttpClient ,private router: Router) {}
 
   ngOnInit(): void {
+    this.roundedAmount = Math.round(this.inventory.amount); 
     console.log(this.inventory);
   }
 

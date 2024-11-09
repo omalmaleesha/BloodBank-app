@@ -1,13 +1,13 @@
-<div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5 " data-aos="fade-right">
   <div class="row text-center mb-4">
     <div class="col">
-      <h1>Blood Request</h1>
-      <h3>Fill the form below to Request!</h3>
+      <h1 class="fw-bolder ">Blood Request</h1>
+      <h3 class="fw-lighter">Fill the form below to Request!</h3>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <form class="bg-light p-4 border rounded">
+      <form class="bg-light p-4 border rounded-5">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="hospitalID" class="">Hospital ID</label>
@@ -37,7 +37,7 @@
           <label for="message" class="">Message</label>
           <textarea id="message" name="message" class="form-control" cols="46" rows="3" [(ngModel)]="temp.message" placeholder="Your comments..."></textarea>
         </div>
-        <button class="btn btn-primary btn-block mt-2" type="button" (click)="addNewRequest()">Submit</button>
+        <button class="btn btn-outline-danger btn-block mt-2" type="button" (click)="addNewRequest()">Submit</button>
       </form>
     </div>
   </div>
